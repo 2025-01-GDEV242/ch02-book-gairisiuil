@@ -1,10 +1,10 @@
 /**
- * A class that maintains information on a book.
- * This might form part of a larger application such
- * as a library system, for instance.
+ * A class that tracks book information, like author, title,
+ * amount of pages, reference number, whether it's been borrowed,
+ * and whether it's being used as a course textbook.
  *
- * @author (Insert your name here.)
- * @version (Insert today's date here.)
+ * @author Aidan O'Connell
+ * @version 2025-02-03_01
  */
 class Book
 {
@@ -18,10 +18,10 @@ class Book
     // Exercise 2.91
     private int borrowed;
     // Exercise 2.92
-    private boolean courseText;
+    private final boolean courseText;
 
     /**
-     * Set the author and title fields when this object
+     * Set author, title, pages, and isText fields when this object
      * is constructed.
      */                                              // 2.85
     public Book(String bookAuthor, String bookTitle, int bookPages,
@@ -42,30 +42,43 @@ class Book
     // Add the methods here ...
     
     // Exercise 2.83 methods
+    /** Returns the author's name.
+     */
     public String getAuthor() {
         return author;
     }
     
+    /** Returns the title of the book.
+     */
     public String getTitle() {
         return title;
     }
     
     // Exercise 2.85
+    /** Returns the number of pages.
+     */
     public int getPages() {
         return pages;
     }
     
     // Exercise 2.91
+    /** Returns whether the book has been borrowed.
+     */
     public int getBorrowed() {
         return borrowed;
     }
     
     // Exercise 2.92
+    /** Returns whether it's a textbook for a course.
+     */
     public boolean isCourseText() {
         return courseText;
     }
     
     // Exercise 2.88
+    /** Sets the reference number.
+     * @param ref the reference number for the book
+     */
     public void setRefNumber(String ref) {
         // 2.90
         if (ref.length() >= 3) {
@@ -76,15 +89,22 @@ class Book
     }
     
     // Exercise 2.84 methods
+    /** Prints the author of the book.
+     */
     public void printAuthor() {
         System.out.println(author);
     }
     
+    /** Prints the title of the book.
+     */
     public void printTitle() {
         System.out.println(title);
     }
     
     // Exercise 2.86
+    /** Prints most of the information about the book (textbook status
+     *  is excluded.)
+     */
     public void printDetails() {
         System.out.println("Book title: " + title);
         System.out.println("Book author: " + author);
@@ -102,6 +122,8 @@ class Book
     }
     
     // Exercise 2.91
+    /** "Borrows" the book by adding 1 to its borrow record
+     */
     public void borrow() {
         borrowed += 1;
     }
